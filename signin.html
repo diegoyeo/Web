@@ -1,39 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</script>
+    
     <title>Validación con jQuery</title>    
 </head>
 <body>
-    <div class="d-flex justify-content-center align-items-center vh-100">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="recursos/logotipo_ipn.png" alt="LogoIPN" style="height: 40px;">
+              </a>
+              <div class="d-flex ms-auto">
+                <a class="navbar-brand" href="#">
+                  <img src="recursos/escudoESCOM.png" alt="escudoESCOM" style="height: 40px;">
+                </a>
+              </div>
+            </div>
+          </nav>        
+          
+    </header><br>
+    <div class="d-flex justify-content-center align-items-center ">
         <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
             <h2 class="text-center mb-4">Formulario</h2>
-            <form>
+            <form id="FormLock" method="POST">
                 <legend class="legend mb-3"><b>Ingrese sus datos</b></legend>
+                <div class="mb-3">
+                    <label for="tipoSolicitud" class="form-label">Tipo de solicitud</label><br>
+                    <input type="radio" name="tipoSolicitud" id="renovacion"  value="renovacion">Renovación<br>
+                    <input type="radio" name="tipoSolicitud" id="primeraVez" value="primeraVez">Solicitar por primera vez
+                </div>
+                <div class="mb-3" id="numeroLockerDiv" style="display: none;">
+                    <label for="numeroLocker" class="form-label">Número de locker asignado anteriormente</label>
+                    <input type="number" min="1" name="numeroLocker" id="numeroLocker" class="form-control" >
+                </div>
                 <div class="mb-3" id="nombreContainer">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control">
+                    <input type="text" name="nombre" id="nombre" class="form-control" >
+                </div>
+                <div class="mb-3" id="nombreContainer">
+                    <label for="primerA" class="form-label">Primer apellido</label>
+                    <input type="text" name="primerA" id="primerA" class="form-control" >
+                </div>
+                <div class="mb-3" id="nombreContainer">
+                    <label for="segundoA" class="form-label">Segundo apellido</label>
+                    <input type="text" name="segundoA" id="segundoA" class="form-control" >
+                </div>
+                <div class="mb-3" id="nombreContainer">
+                    <label for="tel" class="form-label">Teléfono</label>
+                    <input type="tel" name="tel" id="tel" class="form-control" >
+                </div>
+                <div class="mb-3" id="nombreContainer">
+                    <label for="boleta" class="form-label">Boleta</label>
+                    <input type="text" name="boleta" id="boleta" class="form-control" >
+                </div>
+                <div class="mb-3" id="nombreContainer">
+                    <label for="estatura" class="form-label">¿Cuál es tu estatura?</label>
+                    <input type="number" step="0.01" min="0.1" name="estatura" id="estatura" class="form-control" >
                 </div>
                 <div class="mb-3">
                     <label for="edad" class="form-label">Edad</label>
-                    <input type="number" name="edad" id="edad" class="form-control">
+                    <input type="number" name="edad" id="edad" class="form-control" >
                 </div>
                 <div class="mb-3">
-                    <label for="correo" class="form-label">Correo</label>
-                    <input type="email" name="correo" id="correo" class="form-control">
+                    <label for="correo" class="form-label">Correo electrónico</label>
+                    <input type="email" name="correo" id="correo" class="form-control" >
+                </div>
+                <div class="mb-3" id="nombreContainer">
+                    <label for="credencialPDF" class="form-label">Credencial del IPN vigente</label>
+                    <input type="file" name="credencialPDF" id="credencialPDF" class="form-control" accept="application/pdf" >
+                </div>
+                <div class="mb-3" id="nombreContainer">
+                    <label for="horarioPDF" class="form-label">Horario de clases</label>
+                    <input type="file" name="horarioPDF" id="horarioPDF" class="form-control" accept="application/pdf" >
+                </div>
+                <div class="mb-3" id="nombreContainer">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <input type="text" name="usuario" id="usuario" class="form-control" >
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" name="password" id="password" class="form-control">
-                </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" name="password" id="password" class="form-control" >
+                    </div>
                 <div class="d-flex justify-content-center">
-                    <input type="submit" class="btn btn-outline-danger" value="Ver Datos" id="verDatos">
+                    <input type="button" class="btn btn-outline-danger" value="Verificar Datos" id="verDatos" onclick="verificarDatos()">
+                </div><br>
+                
+                <div class="d-flex justify-content-center">
+                    <input type="reset" class="btn btn-outline-danger" value="Limpiar" id="limpiar">
+                </div><br>
+                <div class="d-flex justify-content-center">
+                    <a href="index.html" class="btn btn-outline-danger">Regresar</a>
+
                 </div>
             </form>
+
+            
+        </div>
+        <div id="resultado" style="display:none;">
+            <h3>Datos Ingresados:</h3>
+            <ul id="datosList"></ul>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-success" id="guardarDatos">Guardar</button><br><br>
+                <button class="btn btn-warning" id="editarDatos" onclick="editarDatos()">Editar</button>
+            </div>
         </div>
     </div>
+    <script lang="javascript" src="js/valSolicitud.js">
+        
+    </script>
 </body>
 </html>
