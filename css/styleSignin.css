@@ -57,14 +57,19 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* Evitar scroll innecesario */
+            overflow: auto; /* Permite el desplazamiento vertical */
             font-family: Arial, sans-serif;
         }
+        
+        body {
+            padding-top: 0px; /* Espacio para el navbar */
+        }
 
+        
         /* Header centrado y más proporcionado */
         header {
-            height: 15%; /* Ocupa el 15% de la pantalla */
-            background-color: #343a40; /* Fondo oscuro */
+            height: 15%; 
+            background-color: #343a40; 
             color: white;
             display: flex;
             justify-content: center;

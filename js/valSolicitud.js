@@ -1,8 +1,8 @@
 
-const tipoSolicitud = document.getElementsByName("tipoSolicitud");
-const numeroLockerDiv = document.getElementById("numeroLockerDiv");
-const numeroLocker = document.getElementById("numeroLocker");
-const form = document.getElementById("FormLock");
+let tipoSolicitud = document.getElementsByName("tipoSolicitud");
+let numeroLockerDiv = document.getElementById("numeroLockerDiv");
+let numeroLocker = document.getElementById("numeroLocker");
+let form = document.getElementById("FormLock");
 
 // Mostrar/ocultar el campo de número de locker según la selección
 tipoSolicitud.forEach((radio) => {
@@ -19,79 +19,97 @@ tipoSolicitud.forEach((radio) => {
 
 // Evento onclick para el botón "Verificar Datos"
 document.getElementById('verDatos').addEventListener('click', function () {
-    let valid = true;
+    let valido = true;
 
     // Verificar que se haya seleccionado al menos un radio button
-    const tipoSoli = document.querySelector('input[name="tipoSolicitud"]:checked');
+    let tipoSoli = document.querySelector('input[name="tipoSolicitud"]:checked');
     if (!tipoSoli) {
         alert("Por favor, seleccione el tipo de solicitud.");
-        valid = false;
+        valido = false;
     }
+    
+    const nombre = document.getElementById("nombre").value;
+    const expresionNombre = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/;
+    if (!nombre || !expresionNombre.test(nombre)) {
+        alert("El campo Nombre solo debe contener letras y espacios.");
+        valido = false;
+    }
+
+    const primerApellido = document.getElementById("primerA").value;
+    if (!primerApellido || !expresionNombre.test(primerApellido)) {
+        alert("El campo Primer Apellido solo debe contener letras y espacios.");
+        valido = false;
+    }
+
+    const segundoApellido = document.getElementById("segundoA").value;
+    if (!segundoApellido || !expresionNombre.test(segundoApellido)) {
+        alert("El campo Segundo Apellido solo debe contener letras y espacios.");
+        valido = false;
+    }
+
 
     if (document.getElementById('renovacion').checked) {
-        const numeroLocker = document.getElementById("numeroLocker").value;
+        let numeroLocker = document.getElementById("numeroLocker").value;
         if (!numeroLocker || numeroLocker <= 0) {
             alert("El número de locker es obligatorio.");
-            valid = false;
+            valido = false;
         }
     }
 
-    const correo = document.getElementById("correo").value;
-    if (!correo || !correo.endsWith("@alumno.ipn.mx")) {
+    let correo = document.getElementById("correo").value;
+    let correoRegex = /^[a-zA-Z0-9._%+-]+@alumno\.ipn\.mx$/;
+    if (!correo || !correoRegex.test(correo)) {
         alert("El correo debe ser del dominio @alumno.ipn.mx.");
-        valid = false;
+        valido = false;
     }
 
-    const tel = document.getElementById("tel").value;
+    let tel = document.getElementById("tel").value;
     if (!tel || !/^\d{10}$/.test(tel)) {
         alert("El teléfono debe contener exactamente 10 dígitos.");
-        valid = false;
+        valido = false;
     }
 
-    const boleta = document.getElementById("boleta").value;
+    let boleta = document.getElementById("boleta").value;
     if (!boleta || !/^\d{10}$/.test(boleta)) {
         alert("El número de boleta debe contener exactamente 10 dígitos.");
-        valid = false;
+        valido = false;
     }
 
-    const estatura = document.getElementById("estatura").value;
+    let estatura = document.getElementById("estatura").value;
     if (estatura && (isNaN(estatura) || estatura < 0.1 || estatura > 2.3)) {
         alert("La estatura debe ser un número entre 0.1 y 2.3 metros.");
-        valid = false;
+        valido = false;
     }
 
-    const edad = document.getElementById("edad").value;
+    let edad = document.getElementById("edad").value;
     if (!edad || isNaN(edad) || edad <= 0) {
         alert("La edad debe ser un número mayor a 0.");
-        valid = false;
+        valido = false;
     }
+   
 
-    const requiredFields = ["nombre", "primerA", "segundoA", "usuario", "password"];
-    requiredFields.forEach((fieldId) => {
-        const field = document.getElementById(fieldId).value;
-        if (!field) {
-            alert(`El campo ${fieldId} es obligatorio.`);
-            valid = false;
-        }
-    });
-
-    const credencialPDF = document.getElementById('credencialPDF').files.length;
-    const horarioPDF = document.getElementById('horarioPDF').files.length;
+    let credencialPDF = document.getElementById('credencialPDF').files.length;
+    let horarioPDF = document.getElementById('horarioPDF').files.length;
     if (credencialPDF === 0 || horarioPDF === 0) {
         alert("Debe cargar ambos archivos: credencial y horario.");
-        valid = false;
+        valido = false;
     }
 
-    if (!valid) {
+    let contrasena = document.getElementById("password").value;
+    let expresionContrasena = /^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+    if (!contrasena || !expresionContrasena.test(contrasena)) {
+        alert("La contraseña debe tener al menos 8 caracteres, incluyendo un número y un carácter especial.");
+        valido = false;
+    }
+
+    if (!valido) {
         return; 
     }
 
-    // Si pasa las validaciones, mostrar los datos ingresados
-    const nombre = document.getElementById('nombre').value || 'No proporcionado';
-    const tipoSolicitud = document.querySelector('input[name="tipoSolicitud"]:checked')?.value || 'No seleccionado';
-    const primerA = document.getElementById('primerA').value || 'No proporcionado';
-    const segundoA = document.getElementById('segundoA').value || 'No proporcionado';
-    const usuario = document.getElementById('usuario').value || 'No proporcionado';
+    let tipoSolicitud = document.querySelector('input[name="tipoSolicitud"]:checked')?.value;
+    let primerA = document.getElementById('primerA').value;
+    let segundoA = document.getElementById('segundoA').value;
+    let usuario = document.getElementById('usuario').value;
 
     let datosHTML = `
         <li><b>Tipo de solicitud:</b> ${tipoSolicitud}</li>
