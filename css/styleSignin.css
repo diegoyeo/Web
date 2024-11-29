@@ -53,24 +53,15 @@
 
 /* Ajustes del header */
         /* Estilo general para ocupar la altura completa de la página */
-        html, body {
+        body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: auto; /* Permite el desplazamiento vertical */
+            overflow-x: hidden;
             font-family: Arial, sans-serif;
         }
         
         
-        /* Header centrado y más proporcionado */
-        header {
-            height: 15%; 
-            background-color: #343a40; 
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
         .navbar {
             width: 100%;
@@ -84,27 +75,43 @@
             margin: 0 5px;
         }
 
-        /* Carrusel para ocupar el resto del espacio */
-        #newsCarousel {
-            height: 85%; /* Resto de la pantalla */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
         }
-
-        .carousel-inner {
-            height: 100%;
+        
+        main {
+            background-color: #ffffff;
+            margin-bottom: 30px;
         }
-
-        .carousel-item {
-            height: 100%; /* Altura completa */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        
+        main h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: brown;
+            border-bottom: 2px solid brown;
+            padding-bottom: 10px;
         }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 20%;
-            background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-            padding: 15px;
-            border-radius: 10px;
+        
+        main p, main ul {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        
+        main ul {
+            padding-left: 20px;
+        }
+        
+        main li {
+            margin-bottom: 10px;
+        }
+        
+        main li strong {
+            color: brown;
+        }
+        
+        .btn-lore {
+            text-decoration: none;
             color: white;
         }
