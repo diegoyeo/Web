@@ -1,23 +1,4 @@
-/* Estilos por defecto para pantallas grandes */
-body {
-    font-size: 16px;
-  }
-  
-  /* Estilos para pantallas pequeñas */
-  @media (max-width: 600px) {
-    body {
-      font-size: 14px;
-    }
-    .container {
-      padding: 10px;
-    }
-  }
-  
 
-.btn-lore {
-    text-decoration: none;
-    color: white;
-}
 
 .nav-item.dropdown:hover .dropdown-menu {
          display: block; }
@@ -65,59 +46,57 @@ body {
 }
 
 
-/* Ajustes del header */
+
         /* Estilo general para ocupar la altura completa de la página */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden; /* Evitar scroll innecesario */
-            font-family: Arial, sans-serif;
-        }
+        
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
 
-        /* Header centrado y más proporcionado */
-        header {
-            height: 15%; /* Ocupa el 15% de la pantalla */
-            background-color: #343a40; /* Fondo oscuro */
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
 
-        .navbar {
-            width: 100%;
-        }
+main {
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
 
-        .navbar-brand img {
-            height: 50px;
-        }
+main h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: brown;
+    border-bottom: 2px solid brown;
+    padding-bottom: 10px;
+}
 
-        .navbar-nav .btn {
-            margin: 0 5px;
-        }
+main p, main ul {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
 
-        /* Carrusel para ocupar el resto del espacio */
-        #newsCarousel {
-            height: 85%; /* Resto de la pantalla */
-        }
+main ul {
+    padding-left: 20px;
+}
 
-        .carousel-inner {
-            height: 100%;
-        }
+main li {
+    margin-bottom: 10px;
+}
 
-        .carousel-item {
-            height: 100%; /* Altura completa */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+main li strong {
+    color: brown;
+}
 
-        .carousel-caption {
-            position: absolute;
-            bottom: 20%;
-            background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-            padding: 15px;
-            border-radius: 10px;
-            color: white;
-        }
+.btn-lore {
+    text-decoration: none;
+    color: white;
+}
+
+
+
