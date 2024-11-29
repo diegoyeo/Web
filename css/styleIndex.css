@@ -1,0 +1,52 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main {
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
+
+main h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: brown;
+    border-bottom: 2px solid brown;
+    padding-bottom: 10px;
+}
+
+main p, main ul {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+main ul {
+    padding-left: 20px;
+}
+
+main li {
+    margin-bottom: 10px;
+}
+
+main li strong {
+    color: brown;
+}
+
+.btn-lore {
+    text-decoration: none;
+    color: white;
+}
+
+
+
