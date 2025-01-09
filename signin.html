@@ -47,79 +47,86 @@
     <div class="d-flex justify-content-center align-items-center ">
         <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
             <h2 class="text-center mb-4">Formulario</h2>
-            <form id="FormLock" method="POST">
-                <legend class="legend mb-3"><b>Ingrese sus datos</b></legend>
-                <div class="mb-3">
-                    <label for="tipoSolicitud" class="form-label">Tipo de solicitud</label><br>
-                    <input class="form-check-input" type="radio" name="tipoSolicitud" id="renovacion"  value="renovacion">Renovación<br>
-                    <input class="form-check-input" type="radio" name="tipoSolicitud" id="primeraVez" value="primeraVez">Solicitar por primera vez
-                </div>
-                <div class="mb-3" id="numeroLockerDiv" style="display: none;">
-                    <label for="numeroLocker" class="form-label">Número de locker asignado anteriormente</label>
-                    <input type="number" min="1" name="numeroLocker" id="numeroLocker" class="form-control" >
-                </div>
-                <div class="mb-3" id="nombreContainer">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" >
-                </div>
-                <div class="mb-3" id="nombreContainer">
-                    <label for="primerA" class="form-label">Primer apellido</label>
-                    <input type="text" name="primerA" id="primerA" class="form-control" >
-                </div>
-                <div class="mb-3" id="nombreContainer">
-                    <label for="segundoA" class="form-label">Segundo apellido</label>
-                    <input type="text" name="segundoA" id="segundoA" class="form-control" >
-                </div>
-                <div class="mb-3" id="nombreContainer">
-                    <label for="tel" class="form-label">Teléfono</label>
-                    <input type="tel" name="tel" id="tel" class="form-control" >
-                </div>
-                <div class="mb-3" id="nombreContainer">
-                    <label for="boleta" class="form-label">Boleta</label>
-                    <input type="text" name="boleta" id="boleta" class="form-control" >
-                </div>
-                <div class="mb-3" id="nombreContainer">
-                    <label for="estatura" class="form-label">¿Cuál es tu estatura? (en metros)</label>
-                    <input type="number" step="0.01" min="0.1" name="estatura" id="estatura" class="form-control" >
-                </div>
-                <div class="mb-3">
-                    <label for="edad" class="form-label">Edad</label>
-                    <input type="number" name="edad" id="edad" class="form-control" >
-                </div>
-                <div class="mb-3">
-                    <label for="correo" class="form-label">Correo electrónico</label>
-                    <input type="email" name="correo" id="correo" class="form-control" >
-                </div>
-                <div class="mb-3" id="nombreContainer">
-                    <label for="credencialPDF" class="form-label">Credencial del IPN vigente</label>
-                    <input type="file" name="credencialPDF" id="credencialPDF" class="form-control" accept="application/pdf" >
-                </div>
-                <div class="mb-3" id="nombreContainer">
-                    <label for="horarioPDF" class="form-label">Horario de clases</label>
-                    <input type="file" name="horarioPDF" id="horarioPDF" class="form-control" accept="application/pdf" >
-                </div>
-                <div class="mb-3" id="nombreContainer">
-                    <label for="usuario" class="form-label">Usuario</label>
-                    <input type="text" name="usuario" id="usuario" class="form-control" >
-                </div>
-                <div class="mb-3">
+        <!--<form id="FormLock" method="POST"  action="" enctype="multipart/form-data"> -->
+            <form id="FormLock">
+                <div id="cont">
+                    <legend class="legend mb-3"><b>Ingrese sus datos</b></legend>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" name="password" id="password" class="form-control" >
+                        <label for="tipoSolicitud" class="form-label">Tipo de solicitud</label><br>
+                        <input class="form-check-input" type="radio" name="tipoSolicitud" id="renovacion"  value="Renovación">Renovación<br>
+                        <input class="form-check-input" type="radio" name="tipoSolicitud" id="primeraVez" value="Primera vez">Solicitar por primera vez
                     </div>
-                <div class="d-flex justify-content-center">
-                    <input type="button" class="btn btn-outline-danger" value="Verificar Datos" id="verDatos" onclick="verificarDatos()">
-                </div><br>
-                
-                <div class="d-flex justify-content-center">
-                    <input type="reset" class="btn btn-outline-danger" value="Limpiar" id="limpiar">
-                </div><br>
-                <div class="d-flex justify-content-center">
-                    <a href="index.html" class="btn btn-outline-danger">Regresar</a>
+                    <div class="mb-3" id="numeroLockerDiv" style="display: none;">
+                        <label for="numeroLocker" class="form-label">Número de locker asignado anteriormente</label>
+                        <input type="number" min="1" name="numeroLocker" id="numeroLocker" class="form-control" >
+                    </div>
+                    <div class="mb-3" id="nombreContainer">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Solo caracteres alfabéticos">
+                    </div>
+                    <div class="mb-3" id="nombreContainer">
+                        <label for="primerA" class="form-label">Primer apellido</label>
+                        <input type="text" name="primerA" id="primerA" class="form-control" placeholder="Solo caracteres alfabéticos">
+                    </div>
+                    <div class="mb-3" id="nombreContainer">
+                        <label for="segundoA" class="form-label">Segundo apellido</label>
+                        <input type="text" name="segundoA" id="segundoA" class="form-control" placeholder="Solo caracteres alfabéticos">
+                    </div>
+                    <div class="mb-3" id="nombreContainer">
+                        <label for="tel" class="form-label">Teléfono</label>
+                        <input type="tel" name="tel" id="tel" class="form-control" placeholder="Diez dígitos">
+                    </div>
+                    <div class="mb-3" id="nombreContainer">
+                        <label for="boleta" class="form-label">Boleta</label>
+                        <input type="text" name="boleta" id="boleta" class="form-control" placeholder="Diez dígitos">
+                    </div>
+                    <div class="mb-3" id="nombreContainer">
+                        <label for="estatura" class="form-label">¿Cuál es tu estatura?</label>
+                        <input type="number" step="0.01" min="0.1" name="estatura" id="estatura" class="form-control" placeholder="En metros">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Edad</label>
+                        <input type="number" name="edad" id="edad" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo electrónico</label>
+                        <input type="email" name="correo" id="correo" class="form-control" placeholder="Institucional con dominio @alumno.ipn.mx">
+                    </div>
+                    <div class="mb-3" id="nombreContainer">
+                        <label for="credencialPDF" class="form-label">Credencial del IPN vigente (PDF)</label>
+                        <input type="file" name="credencialPDF" id="credencialPDF" class="form-control" accept="application/pdf" >
+                    </div>
+                    <div class="mb-3" id="nombreContainer">
+                        <label for="horarioPDF" class="form-label">Horario de clases (PDF)</label>
+                        <input type="file" name="horarioPDF" id="horarioPDF" class="form-control" accept="application/pdf" >
+                    </div>
+                    <div class="mb-3" id="nombreContainer">
+                        <label for="usuario" class="form-label">Usuario</label>
+                        <input type="text" name="usuario" id="usuario" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" name="password" id="password" class="form-control">
+                            <small class="form-text text-muted">
+                                La contraseña debe tener mínimo 8 caracteres y debe incluir caracteres especiales y numeros.
+                            </small>
+                        </div>
+                    <div class="d-flex justify-content-center">
+                        <input type="button" class="btn btn-outline-danger" value="Verificar Datos" id="verDatos" onclick="verificarDatos()">
+                    </div><br>
+                    
+                    <div class="d-flex justify-content-center">
+                        <input type="reset" class="btn btn-outline-danger" value="Limpiar" id="limpiar">
+                    </div><br>
+                    <div class="d-flex justify-content-center">
+                        <a href="index.html" class="btn btn-outline-danger">Regresar</a>
 
+                    </div>
                 </div>
+                
+                
             </form>
-
             
         </div>
         <div id="resultado" style="display:none;">
