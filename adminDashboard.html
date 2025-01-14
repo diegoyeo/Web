@@ -73,7 +73,17 @@
             <div id="casilleros" class="container">
                 <!-- Las filas serán generadas por JavaScript -->
             </div>
-
+            <div id="menu" class="menu" style="display: none; position: absolute; z-index: 1000; background: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                            
+                <div id="boletas" class="container mt-4" style="display: none;">
+                    <h3>Selecciona una boleta:</h3>
+                    <ul id="listaBoletas" class="list-group">
+                        <!-- Las boletas serán generadas dinámicamente -->
+                    </ul>
+                </div>
+                <p id="menu-header">Asignar casillero</p>
+            </div>
+            
         </section>
     </main>
     <footer class="bg-body-tertiary py-3 mt-4">
@@ -125,5 +135,6 @@
             filaActual.appendChild(boton);
         }
     </script>
+    <script src="js/adminDashboard.js"></script>
 </body>
 </html>
