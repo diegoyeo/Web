@@ -122,3 +122,47 @@ header {
             text-decoration: none;
             color: white;
         }
+
+/* Asegurar que el contenido principal ocupe al menos el espacio restante */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1; /* Se expande para ocupar el espacio restante entre el header y el footer */
+}
+main, .card {
+    margin-top: 50px; /* Ajusta este valor según la altura del header */
+}
+
+
+/* Footer siempre visible y sin encimarse */
+footer {
+    background-color: #4c0000;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-top: 2px solid transparent;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .row {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

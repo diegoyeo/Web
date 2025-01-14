@@ -144,9 +144,8 @@ document.getElementById('editarDatos').addEventListener('click', function () {
 
 document.getElementById('guardarDatos').addEventListener('click', function () {
     // Opcional: Confirmación antes de enviar
-    if (confirm('¿Deseas enviar los datos ingresados?')) {
         document.getElementById('FormLock').submit();
-    }
+    
 });
 
 
@@ -156,7 +155,43 @@ document.getElementById('guardarDatos').addEventListener('click', function () {
     window.location.href = "index.html";
 });*/
 
+//AJAX
+// Función para verificar en tiempo real
+// Verificar existencia de boleta
+function verificarExistencia(tipo, valor, inputId, mensajeId) {
+    if (!valor.trim()) return;
 
+    if (tipo === "boleta") {
+        $.ajax({
+            url: "./php/verificar_usuario.php",
+            method: "POST",
+            data: { tipo: tipo, valor: valor },
+            dataType: "json",
+            success: function (response) {
+                const mensaje = document.getElementById(mensajeId);
+                const botonGuardar = document.getElementById("verDatos");
 
+                if (response.existe) {
+                    mensaje.textContent = "Este número de boleta ya está registrado.";
+                    mensaje.style.color = "red";
+                    botonGuardar.disabled = true; // Deshabilitar botón
+                } else {
+                    mensaje.textContent = "Número de boleta disponible.";
+                    mensaje.style.color = "green";
+                    botonGuardar.disabled = false; // Habilitar botón
+                }
+            },
+            error: function () {
+                alert("Hubo un error en la verificación. Inténtalo de nuevo.");
+            }
+        });
+    }
+}
+
+// Asignar evento al campo de boleta
+document.getElementById("boleta").addEventListener("blur", function () {
+    const valor = this.value;
+    verificarExistencia("boleta", valor, "boleta", "boletaMensaje");
+});
 
 
