@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: application/json');
 
 // Conexión a la base de datos
 $host = "localhost";

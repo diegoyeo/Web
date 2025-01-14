@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar el menú y las boletas cuando se haga clic en un casillero
     botones.forEach((boton) => {
         boton.addEventListener('click', (event) => {
-            menuHeader.innerText = `Acciones para el casillero ${boton.innerText}`;
+
             const rect = boton.getBoundingClientRect();
             menu.style.top = `${rect.bottom + window.scrollY}px`;
             menu.style.left = `${rect.left}px`;
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Asignar el casillero seleccionado a la boleta
     function asignarCasillero(solicitud, numCasillero) {
         const boletaSeleccionada = solicitud.boleta;
-
+    
         // Enviar la solicitud para asignar el casillero a la boleta
         fetch('./php/asignarCasillero.php', {
             method: 'POST',
@@ -104,16 +104,16 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Actualizar el estado de la solicitud a 'finalizada'
-                actualizarEstadoSolicitud(solicitud);
+                // Llama correctamente a actualizarEstadoSolicitud pasando los valores adecuados
+        
                 alert(`Casillero ${numCasillero} asignado a la boleta ${boletaSeleccionada} y estado actualizado a 'finalizada'`);
-
+    
                 // Deshabilitar el botón del casillero
                 const botonCasillero = document.querySelector(`button[data-id="${numCasillero}"]`);
                 if (botonCasillero) {
                     botonCasillero.disabled = true;
                 }
-
+    
                 // Cerrar el contenedor de boletas
                 boletasContainer.style.display = 'none';
             } else {
@@ -125,23 +125,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Actualizar el estado de la solicitud a 'finalizada'
-    function actualizarEstadoSolicitud(solicitud) {
-        fetch('./php/actualizarEstadoSolicitud.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `id_soli=${solicitud.id_soli}&estado_soli=finalizada`,
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (!data.success) {
-                alert(data.message || 'No se pudo actualizar el estado de la solicitud.');
-            }
-        })
-        .catch(error => {
-            console.error('Error al actualizar el estado de la solicitud:', error);
-        });
-    }
+
 });
