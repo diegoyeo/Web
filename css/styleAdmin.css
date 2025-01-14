@@ -107,3 +107,25 @@ header {
 }
 
 
+
+        .fila {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .boton {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .boton.seleccionado {
+            background-color: #4CAF50;
+            color: white;
+        }
+ 

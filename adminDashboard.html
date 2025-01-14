@@ -1,0 +1,129 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleAdmin.css">
+    <title>Admin</title>
+    <style>
+        .fila {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .boton {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .boton.seleccionado {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="recursos/logotipo_ipn.png" alt="LogoIpn" title="Logo Ipn" width="50" height="50" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-dark me-2"><a href="index.html" class="btn-lore">Inicio</a></button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-dark me-2"><a href="signin.html" class="btn-lore">Solicitud</a></button>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#inicio" style="color: rgb(255, 0, 0);">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-dark me-2"><a href="admin.html" class="btn-lore">Admin</a></button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-dark me-2"><a href="acceso.html" class="btn-lore">Acceso</a></button>
+                        </li>
+                    </ul>
+                </div>
+                <a class="navbar-brand" href="">
+                    <img src="recursos/escudoESCOM.png" alt="LogoEscom" title="Logo Escom" width="50" height="50" class="d-inline-block align-text-top">
+                </a>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <main>
+        <section>
+            <h2>Bienvenido, Admin</h2>
+            <p style="text-align: center;">Esta es tu área de administración.</p>
+
+            <div id="casilleros" class="container">
+                <!-- Las filas serán generadas por JavaScript -->
+            </div>
+
+        </section>
+    </main>
+    <footer class="bg-body-tertiary py-3 mt-4">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <a href="https://www.ipn.mx" target="_blank">
+                        <img src="recursos/logotipo_ipn.png" alt="Logo IPN" title="IPN" width="50" height="50">
+                    </a>
+                    <p><a href="https://www.ipn.mx" target="_blank">Instituto Politécnico Nacional</a></p>
+                </div>
+                <div class="col">
+                    <a href="https://www.escom.ipn.mx" target="_blank">
+                        <img src="recursos/escudoESCOM.png" alt="Logo ESCOM" title="ESCOM" width="50" height="50">
+                    </a>
+                    <p><a href="https://www.escom.ipn.mx" target="_blank">Escuela Superior de Cómputo</a></p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <p>Producto Registrado &copy; 2024. Todos los Derechos Reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Crear botones de manera dinámica
+        const casillerosContainer = document.getElementById('casilleros');
+        const totalBotones = 100;
+        const botonesPorFila = 20; // Número de botones por fila
+
+        for (let i = 0; i < totalBotones; i++) {
+            if (i % botonesPorFila === 0) {
+                // Crear una nueva fila
+                const fila = document.createElement('div');
+                fila.classList.add('fila');
+                casillerosContainer.appendChild(fila);
+            }
+
+            // Crear un nuevo botón
+            const boton = document.createElement('button');
+            boton.classList.add('boton');
+            boton.setAttribute('data-id', i + 1);
+            boton.setAttribute('data-status', 'disponible');
+            boton.innerText = i + 1;
+
+            // Agregar el botón a la fila actual
+            const filaActual = casillerosContainer.lastElementChild;
+            filaActual.appendChild(boton);
+        }
+    </script>
+</body>
+</html>
