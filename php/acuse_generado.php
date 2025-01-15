@@ -18,7 +18,7 @@ if (!isset($_SESSION['usuario'])) {
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="recursos/logotipo_ipn.png" alt="LogoIpn" title="Logo Ipn" width="50" height="50" class="d-inline-block align-text-top">
+                    <img src="../recursos/logotipo_ipn.png" alt="LogoIpn" title="Logo Ipn" width="50" height="50" class="d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@ if (!isset($_SESSION['usuario'])) {
                     </ul>
                 </div>
                 <a class="navbar-brand" href="">
-                    <img src="recursos/escudoESCOM.png" alt="LogoEscom" title="Logo Escom" width="50" height="50" class="d-inline-block align-text-top">
+                    <img src="../recursos/escudoESCOM.png" alt="LogoEscom" title="Logo Escom" width="50" height="50" class="d-inline-block align-text-top">
                 </a>
             </div>
         </nav>
@@ -64,13 +64,13 @@ if (!isset($_SESSION['usuario'])) {
             <div class="row">
                 <div class="col">
                     <a href="https://www.ipn.mx" target="_blank">
-                        <img src="recursos/logotipo_ipn.png" alt="Logo IPN" title="IPN" width="50" height="50">
+                        <img src="../recursos/logotipo_ipn.png" alt="Logo IPN" title="IPN" width="50" height="50">
                     </a>
                     <p><a href="https://www.ipn.mx" target="_blank">Instituto Politécnico Nacional</a></p>
                 </div>
                 <div class="col">
                     <a href="https://www.escom.ipn.mx" target="_blank">
-                        <img src="recursos/escudoESCOM.png" alt="Logo ESCOM" title="ESCOM" width="50" height="50">
+                        <img src="../recursos/escudoESCOM.png" alt="Logo ESCOM" title="ESCOM" width="50" height="50">
                     </a>
                     <p><a href="https://www.escom.ipn.mx" target="_blank">Escuela Superior de Cómputo</a></p>
                 </div>
