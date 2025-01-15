@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             telefono: prompt('Teléfono:')
         };
 
-        fetch('addAlumno.php', {
+        fetch('php/addAlumno.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(nuevoAlumno)
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Función para cargar los datos de los alumnos
 function cargarAlumnos() {
-    fetch('getAlumnos.php')
+    fetch('php/getAlumnos.php')
         .then(response => response.json())
         .then(data => {
             const tabla = document.getElementById('tablaAlumnos');
@@ -58,7 +58,7 @@ function cargarAlumnos() {
 
 // Función para eliminar un alumno
 function eliminarAlumno(boleta) {
-    fetch('deleteAlumno.php', {
+    fetch('php/deleteAlumno.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ boleta })
