@@ -18,6 +18,7 @@ Create table Alumno(
 CREATE TABLE Solicitud(
     id_soli INT AUTO_INCREMENT PRIMARY KEY,
     boleta INT,
+    usuario_alum VARCHAR(50),
     tipo_soli VARCHAR(25),
     estado_soli VARCHAR(25),
     hora_registro TIME,

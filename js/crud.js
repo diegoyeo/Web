@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Función para cargar los datos de los alumnos
 function cargarAlumnos() {
-    fetch('php/getAlumnos.php')
+    fetch('php/getAlumno.php')
         .then(response => response.json())
         .then(data => {
             const tabla = document.getElementById('tablaAlumnos');
