@@ -8,12 +8,6 @@ if (!isset($_SESSION['usuario']) || !isset($_SESSION['boleta'])) {
     exit;
 }
 
-// Verificar si el acuse ya ha sido generado en esta sesión
-if (isset($_SESSION['acuse_generado']) && $_SESSION['acuse_generado'] === true) {
-    // Si ya se generó, redirigir al usuario a la página de acuse generado
-    echo '<script>window.location.href = "acuse_generado.php";</script>';
-    exit;
-}
 
 $host = "localhost";
 $dbname = "asignacion";
