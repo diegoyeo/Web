@@ -21,6 +21,7 @@ if (!empty($_POST['num_casillero']) && !empty($_POST['id_soli'])) {
         $query = "UPDATE casillero SET id_soli = ?, estado_cas = 'ocupado' WHERE num_casillero = ?";
         $stmt = $conn->prepare($query);
         $stmt->execute([$id_soli, $num_Casillero]);
+        
         // Actualizar el estado de la solicitud
         $queryUpdateSolicitud = "UPDATE solicitud SET estado_soli = 'finalizada' WHERE id_soli = ?";
         $stmtUpdateSolicitud = $conn->prepare($queryUpdateSolicitud);
