@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Verificar si la sesión está iniciada
+//Verificar si la sesión está iniciada
 if (!isset($_SESSION['usuario']) || !isset($_SESSION['boleta'])) {
     echo '<script>alert("Por favor, inicia sesión para acceder a esta página."); window.location.href = "acceso.html";</script>';
     exit;
