@@ -56,19 +56,22 @@ function cargarAlumnos() {
         });
 }
 
-// Función para eliminar un alumno
 function eliminarAlumno(boleta) {
+    if (!confirm('¿Estás seguro de que deseas eliminar este alumno?')) return;
+
     fetch('php/deleteAlumno.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ boleta })
-    }).then(response => response.json())
-      .then(data => {
-          if (data.status === 'success') {
-              alert('Alumno eliminado exitosamente');
-              cargarAlumnos();
-          } else {
-              alert('Error al eliminar alumno');
-          }
-      });
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('Alumno eliminado exitosamente');
+            cargarAlumnos(); // Recargar la tabla después de borrar
+        } else {
+            alert('Error al eliminar alumno');
+        }
+    })
+    .catch(error => console.error('Error en la solicitud de eliminación:', error));
 }
